@@ -1,6 +1,6 @@
 <script setup>
 import axios from "axios";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import AddItemForm from "./addItemForm.vue";
 import listView from "./listView.vue";
 
@@ -15,12 +15,15 @@ const getList = () => {
             console.log(err);
         });
 };
-getList();
+
+onMounted(() => {
+    getList();
+});
 </script>
 
 <template>
     <div class="title">TodoList</div>
-    <AddItemForm />
+    <AddItemForm @reload-list="getList" />
     <list-view :items="items" />
 </template>
 

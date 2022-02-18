@@ -22,6 +22,17 @@ const updateCheck = () => {
         })
         .catch((err) => console.log(err));
 };
+
+const removeItem = () => {
+    axios
+        .delete("api/item/" + item.id)
+        .then((res) => {
+            if (res.status === 200) {
+                emit("itemChanged");
+            }
+        })
+        .catch((err) => console.log(err));
+};
 </script>
 
 <template>
