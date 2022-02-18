@@ -11,7 +11,11 @@ const props = defineProps({
 <template>
     <ul>
         <li v-for="(item, index) in props.items" :key="index">
-            <list-item :item="item" class="item" />
+            <list-item
+                :item="item"
+                class="item"
+                @item-changed="$emit('reloadList')"
+            />
         </li>
     </ul>
 </template>

@@ -11,7 +11,9 @@ const getList = () => {
         .then((res) => {
             items.value = res.data;
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+            console.log(err);
+        });
 };
 getList();
 </script>
